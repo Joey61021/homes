@@ -1,0 +1,18 @@
+settings:
+  max_homes: 5 # must be int
+messages:
+  console_blocked: "&cThis command cannot be run in console!"
+  sethome:
+    usage: "&cUsage:\n- /sethome [name]"
+    too_many: "&cYou have too many homes!"
+    in_use: "&cThis home name is already in use!"
+    set: "&aYou have create home %home%"
+  home:
+    available: "&eHomes: &f%homes%"
+    no_homes: "&cYou do not have any homes set!"
+    not_found: "&cThis home cannot be found!"
+    teleporting: "&fTeleporting to home &e%home%&f..."
+  delhome:
+    usage: "&cUsage:\n- /delhome [home]"
+    not_found: "&cThis home does not exist!"
+    deleted: "&aHome has been deleted!"
