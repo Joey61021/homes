@@ -18,26 +18,26 @@ public final class DelHomeCommand
     {
         if (!(sender instanceof Player player))
         {
-            sender.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_CONSOLE_BLOCKED));
+            sender.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_CONSOLE_BLOCKED));
             return true;
         }
 
         // /sethome [name]
         if (args.length == 0)
         {
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_DELHOME_USAGE));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_DELHOME_USAGE));
             return true;
         }
 
         String name = args[0].toLowerCase(); // Must be lowercase
         if (!HomeManager.exists(player, name))
         {
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_DELHOME_NOT_FOUND));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_DELHOME_NOT_FOUND));
             return true;
         }
 
         HomeManager.delHome(player, name);
-        player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_DELHOME_DELETED));
+        player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_DELHOME_DELETED));
         return true;
     }
 }

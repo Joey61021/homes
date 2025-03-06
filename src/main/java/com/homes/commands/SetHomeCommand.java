@@ -18,32 +18,32 @@ public final class SetHomeCommand
     {
         if (!(sender instanceof Player player))
         {
-            sender.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_CONSOLE_BLOCKED));
+            sender.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_CONSOLE_BLOCKED));
             return true;
         }
 
         // /sethome [name]
         if (args.length == 0)
         {
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_SETHOME_USAGE));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_SETHOME_USAGE));
             return true;
         }
 
         if (HomeManager.homes.get(player.getUniqueId()).size() > Integer.parseInt(HomesCore.getConfigKeys().get(TextKeys.SETTINGS_MAX_HOMES)))
         {
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_SETHOME_TOO_MANY));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_SETHOME_TOO_MANY));
             return true;
         }
 
         String name = args[0].toLowerCase(); // Needs to be lowercase
         if (HomeManager.exists(player, name))
         {
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_SETHOME_IN_USE));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_SETHOME_IN_USE));
             return true;
         }
 
         HomeManager.addHome(player, name);
-        player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_SETHOME_SET).replace("%home%", name));
+        player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_SETHOME_SET).replace("%home%", name));
         return true;
     }
 }

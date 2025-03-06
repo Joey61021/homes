@@ -21,7 +21,7 @@ public final class HomeCommand
     {
         if (!(sender instanceof Player player))
         {
-            sender.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_CONSOLE_BLOCKED));
+            sender.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_CONSOLE_BLOCKED));
             return true;
         }
 
@@ -31,7 +31,7 @@ public final class HomeCommand
         {
             if (homes.isEmpty())
             {
-                player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_HOME_NO_HOMES));
+                player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_HOME_NO_HOMES));
                 return true;
             }
 
@@ -42,7 +42,7 @@ public final class HomeCommand
                 sb.append(home.getName()).append(" ");
             }
 
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_HOME_AVAILABLE).replace("%homes%", sb.toString()));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_HOME_AVAILABLE).replace("%homes%", sb.toString()));
             return true;
         }
 
@@ -60,12 +60,12 @@ public final class HomeCommand
 
         if (home == null)
         {
-            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_HOME_NOT_FOUND));
+            player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_HOME_NOT_FOUND));
             return true;
         }
 
         player.teleport(home.getLocation());
-        player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.COMMAND_HOME_TELEPORTING).replace("%home%", home.getName()));
+        player.sendMessage(HomesCore.getConfigKeys().get(TextKeys.MESSAGES_HOME_TELEPORTING).replace("%home%", home.getName()));
         return true;
     }
 }
